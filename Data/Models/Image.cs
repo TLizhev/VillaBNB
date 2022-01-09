@@ -1,7 +1,10 @@
-﻿namespace VillaBNB.Data.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace VillaBNB.Data.Models
 {
     public class Image
     {
+        [Key]
         public int ImageId { get; set; }
 
         public string ImageUrl { get; set; }
