@@ -27,8 +27,12 @@ namespace VillaBNB.Data
 
         public DbSet<Category> Categories { get; set; }
 
+
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            base.OnModelCreating(builder);
+
             builder.Entity<Villa>()
                 .HasOne(v => v.Country)
                 .WithMany()
@@ -64,6 +68,8 @@ namespace VillaBNB.Data
                 .WithMany()
                 .HasForeignKey(c => c.VillaId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            
 
         }
     }
