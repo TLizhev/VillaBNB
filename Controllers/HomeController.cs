@@ -5,22 +5,27 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using VillaBNB.Data;
 using VillaBNB.Models;
 
 namespace VillaBNB.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDbContext db;
+        public HomeController(ApplicationDbContext db)
         {
-            _logger = logger;
+            this.db = db;
         }
+
 
         public IActionResult Index()
         {
-            return View();
+            var view = new IndexViewModel()
+            {
+                VillasCount = this.db.Villas.Count(),
+            };
+            return View(view);
         }
 
         public IActionResult Privacy()
