@@ -9,11 +9,11 @@ namespace VillaBNB.Models
     {
         public string Name { get; set; }
 
-        public int CategoryId { get; set; }
+        //public int CategoryId { get; set; }
 
-        public int CityId { get; set; }
+        //public int CityId { get; set; }
 
-        public int CountryId { get; set; }
+        //public int CountryId { get; set; }
 
         public int Capacity { get; set; }
 
