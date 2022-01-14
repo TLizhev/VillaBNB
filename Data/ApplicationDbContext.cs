@@ -52,11 +52,6 @@ namespace VillaBNB.Data
                 .HasForeignKey(c=>c.CountryId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Entity<Category>()
-                .HasMany(v => v.Villas)
-                .WithOne()
-                .OnDelete(DeleteBehavior.Restrict);
-
             builder.Entity<Amenity>()
                 .HasOne(c => c.Villa)
                 .WithMany()

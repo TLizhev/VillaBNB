@@ -37,6 +37,8 @@ namespace VillaBNB.Controllers
                 Name = model.Name,
                 Bedrooms = model.Bedrooms,               
                 Capacity = model.Capacity,
+                CategoryId=1,
+               
                 
 
             };
