@@ -32,40 +32,6 @@ namespace VillaBNB.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
-            builder.Entity<Villa>()
-                .HasOne(v => v.Country)
-                .WithMany()
-                .HasForeignKey(c => c.CountryId)
-                .HasForeignKey(c => c.CategoryId)
-                .HasForeignKey(c => c.CityId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.Entity<Country>()
-                .HasMany(c => c.Cities)
-                .WithOne()
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.Entity<City>()
-                .HasMany(v => v.Villas)
-                .WithOne()
-                .HasForeignKey(c=>c.CountryId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.Entity<Amenity>()
-                .HasOne(c => c.Villa)
-                .WithMany()
-                .HasForeignKey(c=>c.VillaId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.Entity<Image>()
-                .HasOne(c => c.Villa)
-                .WithMany()
-                .HasForeignKey(c => c.VillaId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            
-
         }
     }
 }
