@@ -13,14 +13,11 @@ namespace VillaBNB.Data.Models
         public int Id { get; set; }
 
         public string Name { get; set; }
-       
-        public int CountryId { get; set; }
-        public virtual Country Country { get; set; }
-
+        [ForeignKey(nameof(City))]
         public int CityId { get; set; }
 
         public virtual City City { get; set; }
-
+        [ForeignKey(nameof(Category))]
         public int CategoryId { get; set; }
 
         public virtual Category Category { get; set; }

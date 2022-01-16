@@ -15,8 +15,13 @@
     </div>
     <div class="form-group">
         <label asp-for="CategoryId"></label>
-        <textarea asp-for="CategoryId" class="form-control" rows="5"></textarea>
-        <span asp-validation-for="CategoryId" class="text-danger"></span>
+        <select asp-for="CategoryId" class="form-control">
+            @foreach (var category in Model.Categories)
+            {
+                <option value="@category.Id">@category.Name</option>
+            }
+        </select>
+        <span asp-validation-for="CategoryId" class="small text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="CountryId"></label>
@@ -25,8 +30,13 @@
     </div>
     <div class="form-group">
         <label asp-for="CityId"></label>
-        <input asp-for="CityId" class="form-control" />
-        <span asp-validation-for="CityId" class="text-danger"></span>
+        <select asp-for="CityId" class="form-control">
+            @foreach (var city in Model.Cities)
+            {
+                <option value="@city.Id">@city.Name</option>
+            }
+        </select>
+        <span asp-validation-for="CategoryId" class="small text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Capacity"></label>

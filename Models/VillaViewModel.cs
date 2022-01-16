@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace VillaBNB.Models
 {
@@ -26,5 +27,9 @@ namespace VillaBNB.Models
         public DateTime EndDate { get; set; }
 
         public decimal PricePerNight { get; set; }
+
+        public IEnumerable<CategoryViewModel> Categories { get; set; }
+
+        public IEnumerable<CityViewModel>Cities { get; set; }
     }
 }

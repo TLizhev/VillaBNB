@@ -29,9 +29,18 @@ namespace VillaBNB.Data
 
 
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
-        }
+        //protected override void OnModelCreating(ModelBuilder builder)
+        //{
+        //    base.OnModelCreating(builder);
+
+        //    builder.Entity<Villa>().HasOne<City>().WithMany().OnDelete(DeleteBehavior.Restrict);
+
+        //    builder.Entity<Country>().HasMany<City>().WithOne().OnDelete(DeleteBehavior.Restrict);
+
+        //    builder.Entity<City>().HasMany<Villa>().WithOne().OnDelete(DeleteBehavior.Restrict);
+
+        //    builder.Entity<Category>().HasMany<Villa>().WithOne().OnDelete(DeleteBehavior.Restrict);
+
+        //}
     }
 }

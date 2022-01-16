@@ -17,19 +17,21 @@ namespace VillaBNB.Controllers
         {
             this.db = db;
         }
+
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index() => View(new VillaViewModel
         {
-            var view = new VillaViewModel();
-            return View(view);
-        }
+            Categories = this.GetCategories(),
+            Cities = this.GetCities()
+            
+        });
+
         [HttpPost]
         public IActionResult Index(VillaViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View();
-
             }
 
             var villa = new Villa
@@ -38,6 +40,11 @@ namespace VillaBNB.Controllers
                 Bedrooms = model.Bedrooms,               
                 Capacity = model.Capacity,
                 CategoryId=model.CategoryId,
+                StartDate = model.StartDate,
+                EndDate = model.EndDate,
+                Bathrooms = model.Bathrooms,
+                CityId = model.CityId,
+
 
                 
                
@@ -46,9 +53,28 @@ namespace VillaBNB.Controllers
             };
 
             this.db.Villas.Add(villa);
+            
             this.db.SaveChanges();
 
             return RedirectToAction("Index", "Home");
+        }
+
+        private IEnumerable<CategoryViewModel> GetCategories()
+        {
+           return this.db.Categories.Select(c => new CategoryViewModel
+            {
+               Id=c.Id,
+               Name = c.Name
+            }).ToList();
+        }
+
+        private IEnumerable<CityViewModel> GetCities()
+        {
+            return this.db.Cities.Select(c => new CityViewModel
+            {
+                Id = c.Id,
+                Name = c.Name
+            });
         }
     }
 }
