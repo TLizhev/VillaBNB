@@ -22,7 +22,8 @@ namespace VillaBNB.Controllers
         public IActionResult Index() => View(new VillaViewModel
         {
             Categories = this.GetCategories(),
-            Cities = this.GetCities()
+            Cities = this.GetCities(),
+            Countries=this.GetCountries(),
             
         });
 
@@ -44,7 +45,7 @@ namespace VillaBNB.Controllers
                 EndDate = model.EndDate,
                 Bathrooms = model.Bathrooms,
                 CityId = model.CityId,
-
+                CountryId=model.CountryId,
 
                 
                
@@ -74,7 +75,16 @@ namespace VillaBNB.Controllers
             {
                 Id = c.Id,
                 Name = c.Name
-            });
+            }).ToList();
+        }
+
+        private IEnumerable<CountryViewModel> GetCountries()
+        {
+            return this.db.Countries.Select(c => new CountryViewModel
+            {
+                Id = c.Id,
+                Name = c.Name
+            }).ToList();
         }
     }
 }

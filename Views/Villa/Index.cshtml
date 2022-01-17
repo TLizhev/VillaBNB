@@ -25,8 +25,13 @@
     </div>
     <div class="form-group">
         <label asp-for="CountryId"></label>
-        <input asp-for="CountryId" class="form-control" />
-        <span asp-validation-for="CountryId" class="text-danger"></span>
+        <select asp-for="CountryId" class="form-control">
+            @foreach (var country in Model.Countries)
+            {
+                <option value="@country.Id">@country.Name</option>
+            }
+        </select>
+        <span asp-validation-for="CountryId" class="small text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="CityId"></label>
@@ -36,7 +41,7 @@
                 <option value="@city.Id">@city.Name</option>
             }
         </select>
-        <span asp-validation-for="CategoryId" class="small text-danger"></span>
+        <span asp-validation-for="CityId" class="small text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Capacity"></label>
@@ -47,6 +52,16 @@
         <label asp-for="Bedrooms"></label>
         <input asp-for="Bedrooms" class="form-control" />
         <span asp-validation-for="Bedrooms" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Bathrooms"></label>
+        <input asp-for="Bathrooms" class="form-control" />
+        <span asp-validation-for="Bathrooms" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PricePerNight"></label>
+        <input asp-for="PricePerNight" class="form-control" />
+        <span asp-validation-for="PricePerNight" class="text-danger"></span>
     </div>
     <input type="submit" class="btn btn-primary" />
 </form>
