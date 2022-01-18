@@ -15,8 +15,6 @@ namespace VillaBNB.Models
         public int CategoryId { get; set; }
         [Display(Name = "City")]
         public int CityId { get; set; }
-        [Display(Name = "Country")]
-        public int CountryId { get; set; }
 
         public int Capacity { get; set; }
 

@@ -13,10 +13,6 @@ namespace VillaBNB.Data.Models
         public int Id { get; set; }
 
         public string Name { get; set; }
-        [ForeignKey(nameof(Country))]
-        public int CountryId { get; set; }
-
-        public virtual Country Country { get; set; }
 
         [ForeignKey(nameof(City))]
         public int CityId { get; set; }

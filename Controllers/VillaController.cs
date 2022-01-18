@@ -23,7 +23,6 @@ namespace VillaBNB.Controllers
         {
             Categories = this.GetCategories(),
             Cities = this.GetCities(),
-            Countries=this.GetCountries(),
             
         });
 
@@ -44,13 +43,7 @@ namespace VillaBNB.Controllers
                 StartDate = model.StartDate,
                 EndDate = model.EndDate,
                 Bathrooms = model.Bathrooms,
-                CityId = model.CityId,
-                CountryId=model.CountryId,
-
-                
-               
-                
-
+                CityId = model.CityId,                                           
             };
 
             this.db.Villas.Add(villa);
