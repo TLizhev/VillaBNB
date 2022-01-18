@@ -27,6 +27,8 @@ namespace VillaBNB.Data
 
         public DbSet<Category> Categories { get; set; }
 
+        public DbSet<Booking> Bookings { get; set; }
+
 
 
         //protected override void OnModelCreating(ModelBuilder builder)
