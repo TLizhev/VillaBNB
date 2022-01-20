@@ -15,7 +15,7 @@ namespace VillaBNB.Controllers
 
         public BookingController(ApplicationDbContext db)
         {
-            db = this.db;
+            this.db = db;
         }
         public IActionResult Add() => View(new BookingViewModel
         {
