@@ -19,7 +19,7 @@ namespace VillaBNB.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index() => View(new VillaViewModel
+        public IActionResult Add() => View(new VillaViewModel
         {
             Categories = this.GetCategories(),
             Cities = this.GetCities(),
@@ -27,7 +27,7 @@ namespace VillaBNB.Controllers
         });
 
         [HttpPost]
-        public IActionResult Index(VillaViewModel model)
+        public IActionResult Add(VillaViewModel model)
         {
             if (!ModelState.IsValid)
             {
