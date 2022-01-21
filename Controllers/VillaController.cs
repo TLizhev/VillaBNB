@@ -53,6 +53,19 @@ namespace VillaBNB.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+
+
+        public IActionResult Edit(int id)
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Edit(int id, VillaViewModel villa)
+        {
+            return View();
+        }
+
+
         private IEnumerable<CategoryViewModel> GetCategories()
         {
            return this.db.Categories.Select(c => new CategoryViewModel
