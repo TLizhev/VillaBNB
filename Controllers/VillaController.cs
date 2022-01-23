@@ -23,6 +23,7 @@ namespace VillaBNB.Controllers
         {
             Categories = this.GetCategories(),
             Cities = this.GetCities(),
+            Countries=this.GetCountries(),
             
         });
 
