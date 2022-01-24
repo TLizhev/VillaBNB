@@ -22,6 +22,8 @@ namespace VillaBNB.Data.Models
         public int CategoryId { get; set; }
 
         public virtual Category Category { get; set; }
+        [Url]
+        public string Photo { get; set; }
 
         public int Capacity { get; set; }
 

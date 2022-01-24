@@ -38,6 +38,7 @@ namespace VillaBNB.Controllers
             var villa = new Villa
             {
                 Name = model.Name,
+                Photo=model.Photo,
                 Bedrooms = model.Bedrooms,               
                 Capacity = model.Capacity,
                 CategoryId=model.CategoryId,

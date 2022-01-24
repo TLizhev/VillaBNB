@@ -16,6 +16,9 @@ namespace VillaBNB.Models
         [Display(Name = "City")]
         public int CityId { get; set; }
 
+        [Url]
+        public string Photo { get; set; }
+
         public int Capacity { get; set; }
 
         public int Bedrooms { get; set; }
