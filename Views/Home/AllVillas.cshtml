@@ -1,0 +1,16 @@
+﻿@model List<VillaListingModel>
+
+
+@{
+    ViewData["Title"] = "All Villas";
+}
+
+@{ 
+    var firstVilla = Model.Any()?Model[0]:null;
+
+    var secondVilla = Model.Count > 1 ? Model[1] : null;
+
+    var thirdVilla = Model.Count > 2 ? Model[2] : null;
+}
+
+

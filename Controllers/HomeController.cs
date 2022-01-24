@@ -30,10 +30,23 @@ namespace VillaBNB.Controllers
             };
             return View(view);
         }
+      
 
-        public IActionResult Privacy()
+        public IActionResult AllVillas()
         {
-            return View();
+            var villas = this.db
+                .Villas
+                .OrderByDescending(v => v.Id)
+                .Select(v => new VillaListingModel
+                {
+                    Id = v.Id,
+                    Name = v.Name,
+                    Category = v.Category.Name,
+                    Photo = v.Photo,
+                })
+                .Take(3)
+                .ToList();
+            return View(villas);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
