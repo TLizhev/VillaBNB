@@ -1,16 +1,21 @@
 ﻿@model List<VillaListingModel>
 
 
-@{
-    ViewData["Title"] = "All Villas";
+
+
+
+@for (int i = 0; i < Model.Count; i++)
+{
+    var villa = Model[i];
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src=@villa.Photo alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">@villa.Name</h5>
+        <p class="card-text">@villa.Category</p>
+        <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Details</a>
+    </div>
+</div>
+
+
 }
-
-@{ 
-    var firstVilla = Model.Any()?Model[0]:null;
-
-    var secondVilla = Model.Count > 1 ? Model[1] : null;
-
-    var thirdVilla = Model.Count > 2 ? Model[2] : null;
-}
-
-
