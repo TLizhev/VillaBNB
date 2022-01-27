@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 using VillaBNB.Data;
 using VillaBNB.Data.Models;
 using VillaBNB.Models;
+using VillaBNB.Services;
 
 namespace VillaBNB.Controllers
 {
     public class VillaController : Controller
     {
         private readonly ApplicationDbContext db;
+        private readonly IVillaService villaService;
 
-        public VillaController(ApplicationDbContext db)
+        public VillaController(ApplicationDbContext db,IVillaService villas)
         {
             this.db = db;
+            this.villaService = villas;
         }
 
         [HttpGet]
@@ -35,22 +38,33 @@ namespace VillaBNB.Controllers
                 return View();
             }
 
-            var villa = new Villa
-            {
-                Name = model.Name,
-                Photo=model.Photo,
-                Bedrooms = model.Bedrooms,               
-                Capacity = model.Capacity,
-                CategoryId=model.CategoryId,
-                StartDate = model.StartDate,
-                EndDate = model.EndDate,
-                Bathrooms = model.Bathrooms,
-                CityId = model.CityId,                                           
-            };
+            //var villa = new Villa
+            //{
+            //    Name = model.Name,
+            //    Photo=model.Photo,
+            //    Bedrooms = model.Bedrooms,               
+            //    Capacity = model.Capacity,
+            //    CategoryId=model.CategoryId,
+            //    StartDate = model.StartDate,
+            //    EndDate = model.EndDate,
+            //    Bathrooms = model.Bathrooms,
+            //    CityId = model.CityId,                                           
+            //};
 
-            this.db.Villas.Add(villa);
-            
-            this.db.SaveChanges();
+            //this.db.Villas.Add(villa);
+
+            //this.db.SaveChanges();
+
+            var villa = this.villaService.Create(
+                model.Name,
+                model.CityId,
+                model.Bedrooms,
+                model.Bathrooms,
+                model.PricePerNight,
+                model.Photo,
+                model.Capacity,
+                model.CategoryId
+                );
 
             return RedirectToAction("Index", "Home");
         }

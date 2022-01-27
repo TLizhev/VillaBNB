@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using VillaBNB.Data;
+using VillaBNB.Services;
 
 namespace VillaBNB
 {
@@ -35,6 +36,8 @@ namespace VillaBNB
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            services.AddScoped<IVillaService, VillaService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
