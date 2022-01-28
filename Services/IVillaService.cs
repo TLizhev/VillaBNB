@@ -31,5 +31,7 @@ namespace VillaBNB.Services
     string imageUrl,
     int capacity,
     int categoryId);
+
+        IEnumerable<VillaServiceModel> AllCategories();
     }
 }

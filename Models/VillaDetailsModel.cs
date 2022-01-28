@@ -2,23 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using VillaBNB.Models;
+using VillaBNB.Services.Models;
 
-namespace VillaBNB.Services.Models
+namespace VillaBNB.Models
 {
-    public class VillaServiceModel
+    public class VillaDetailsModel : VillaServiceModel
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public string  CityName { get; set; }
+        public string CityName { get; set; }
 
         public string PhotoUrl { get; set; }
 
         public string CategoryName { get; set; }
-
-        public IEnumerable<VillaViewModel> Categories { get; set; }
-
     }
 }

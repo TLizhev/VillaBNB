@@ -7,6 +7,9 @@ using VillaBNB.Data;
 using VillaBNB.Data.Models;
 using VillaBNB.Models;
 using VillaBNB.Services;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using VillaBNB.Services.Models;
 
 namespace VillaBNB.Controllers
 {
@@ -14,11 +17,13 @@ namespace VillaBNB.Controllers
     {
         private readonly ApplicationDbContext db;
         private readonly IVillaService villaService;
+        private readonly IMapper mapper;
 
-        public VillaController(ApplicationDbContext db,IVillaService villas)
+        public VillaController(ApplicationDbContext db,IVillaService villas,IMapper mapper)
         {
             this.db = db;
             this.villaService = villas;
+            this.mapper = mapper;
         }
 
         [HttpGet]
@@ -73,7 +78,10 @@ namespace VillaBNB.Controllers
 
         public IActionResult Edit(int id)
         {
-            return View();
+            var villa = this.villaService.Details(id);
+            var villaForm = this.mapper.Map<VillaServiceModel>(villa);
+            //villaForm.Categories = this.villaService.AllCategories()
+            return View(villaForm);
         }
         [HttpPost]
         public IActionResult Edit(int id, VillaViewModel villa)
