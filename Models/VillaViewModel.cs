@@ -9,6 +9,9 @@ namespace VillaBNB.Models
 {
     public class VillaViewModel
     {
+
+        public int Id { get; set; }
+
         [Required]
         public string Name { get; set; }
         [Display(Name = "Category")]

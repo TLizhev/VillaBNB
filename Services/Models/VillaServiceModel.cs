@@ -18,7 +18,7 @@ namespace VillaBNB.Services.Models
 
         public string CategoryName { get; set; }
 
-        public IEnumerable<VillaViewModel> Categories { get; set; }
+        public IEnumerable<VillaServiceModel> Categories { get; set; }
 
     }
 }

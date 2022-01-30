@@ -80,13 +80,30 @@ namespace VillaBNB.Controllers
         {
             var villa = this.villaService.Details(id);
             var villaForm = this.mapper.Map<VillaServiceModel>(villa);
-            //villaForm.Categories = this.villaService.AllCategories()
+            villaForm.Categories = this.villaService.AllCategories();
+            
             return View(villaForm);
         }
         [HttpPost]
         public IActionResult Edit(int id, VillaViewModel villa)
         {
-            return View();
+
+
+            var edited = this.villaService.Edit(
+                id,
+                villa.Name,
+                villa.CityId,
+                villa.Bedrooms,
+                villa.Bathrooms,
+                villa.PricePerNight,
+                villa.Photo,
+                villa.Capacity,
+                villa.CategoryId
+            );
+
+            return RedirectToAction("Index", "Home");
+
+
         }
 
 

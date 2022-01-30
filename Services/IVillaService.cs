@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using VillaBNB.Models;
 using VillaBNB.Services.Models;
 
 namespace VillaBNB.Services
@@ -22,15 +23,16 @@ namespace VillaBNB.Services
     int categoryId);
 
         bool Edit(
-    int villaId,
-    string name,
-    int cityId,
-    int bedrooms,
-    int bathrooms,
-    decimal price,
-    string imageUrl,
-    int capacity,
-    int categoryId);
+            int villaId,
+            string name,
+            int cityId,
+            int bedrooms,
+            int bathrooms,
+            decimal price,
+            string imageUrl,
+            int capacity,
+            int categoryId);
+
 
         IEnumerable<VillaServiceModel> AllCategories();
     }

@@ -7,6 +7,7 @@ using VillaBNB.Data.Models;
 using VillaBNB.Services.Models;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using VillaBNB.Models;
 
 namespace VillaBNB.Services
 {
