@@ -79,9 +79,10 @@ namespace VillaBNB.Controllers
         public IActionResult Edit(int id)
         {
             var villa = this.villaService.Details(id);
-            var villaForm = this.mapper.Map<VillaServiceModel>(villa);
-            villaForm.Categories = this.villaService.AllCategories();
-            
+            var villaForm = this.mapper.Map<VillaViewModel>(villa);
+            villaForm.Categories = (IEnumerable<CategoryViewModel>)this.villaService.AllCategories();
+
+
             return View(villaForm);
         }
         [HttpPost]
@@ -97,8 +98,7 @@ namespace VillaBNB.Controllers
                 villa.Bathrooms,
                 villa.PricePerNight,
                 villa.Photo,
-                villa.Capacity,
-                villa.CategoryId
+                villa.Capacity
             );
 
             return RedirectToAction("Index", "Home");

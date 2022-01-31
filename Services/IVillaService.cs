@@ -10,7 +10,7 @@ namespace VillaBNB.Services
     public interface IVillaService
     {
 
-        VillaServiceModel Details(int villaId);
+        VillaViewModel Details(int villaId);
 
         int Create(
     string name,
@@ -30,10 +30,10 @@ namespace VillaBNB.Services
             int bathrooms,
             decimal price,
             string imageUrl,
-            int capacity,
-            int categoryId);
+            int capacity
+            );
 
 
-        IEnumerable<VillaServiceModel> AllCategories();
+        IEnumerable<VillaCategoryServiceModel> AllCategories();
     }
 }

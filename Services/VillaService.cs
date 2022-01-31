@@ -23,9 +23,10 @@ namespace VillaBNB.Services
             this.mapper = mapper.ConfigurationProvider;
         }
 
-        public IEnumerable<VillaServiceModel> AllCategories()
-        {
-            return this.db.Categories.ProjectTo<VillaServiceModel>(this.mapper).ToList();
+        public IEnumerable<VillaCategoryServiceModel> AllCategories()
+        {            
+
+            return this.db.Categories.ProjectTo<VillaCategoryServiceModel>(this.mapper).ToList();
         }
 
         public int Create(string name, int cityId, int bedrooms, int bathrooms, decimal price, string imageUrl, int capacity, int categoryId)
@@ -48,15 +49,17 @@ namespace VillaBNB.Services
             return villa.Id;
         }
 
-        public VillaServiceModel Details(int villaId)
+        public VillaViewModel Details(int villaId)
         {
-            return this.db.Villas
+            var result =  this.db.Villas
                 .Where(v => v.Id == villaId)
-                .ProjectTo<VillaServiceModel>(this.mapper)
+                .ProjectTo<VillaViewModel>(this.mapper)
                 .FirstOrDefault();
+
+            return result;
         }
 
-        public bool Edit(int villaId, string name, int cityId, int bedrooms, int bathrooms, decimal price, string imageUrl, int capacity, int categoryId)
+        public bool Edit(int villaId, string name, int cityId, int bedrooms, int bathrooms, decimal price, string imageUrl, int capacity)
         {
             var villa = this.db.Villas.Find(villaId);
 
@@ -72,7 +75,7 @@ namespace VillaBNB.Services
             villa.Bedrooms = bedrooms;
             villa.Bathrooms = bathrooms;
             villa.PricePerNight = price;
-            villa.CategoryId = categoryId;
+            ;
 
             this.db.SaveChanges();
 

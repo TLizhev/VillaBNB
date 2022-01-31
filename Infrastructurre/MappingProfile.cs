@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using VillaBNB.Data.Models;
+using VillaBNB.Models;
 using VillaBNB.Services.Models;
 
 namespace VillaBNB.Infrastructurre
@@ -13,7 +14,7 @@ namespace VillaBNB.Infrastructurre
     {
         public MappingProfile()
         {
-            this.CreateMap<Villa, VillaServiceModel>();
+            this.CreateMap<Villa, VillaViewModel>();
         }
     }
 }

@@ -8,14 +8,14 @@ namespace VillaBNB.Models
 {
     public class VillaDetailsModel : VillaServiceModel
     {
-        public int Id { get; set; }
+        public new int Id { get; set; }
 
-        public string Name { get; set; }
+        public new string Name { get; set; }
 
-        public string CityName { get; set; }
+        public new string CityName { get; set; }
 
-        public string PhotoUrl { get; set; }
+        public new string PhotoUrl { get; set; }
 
-        public string CategoryName { get; set; }
+        public new string CategoryName { get; set; }
     }
 }

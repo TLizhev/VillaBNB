@@ -30,7 +30,6 @@ namespace VillaBNB.Controllers
             };
             return View(view);
         }
-      
 
         public IActionResult AllVillas()
         {
