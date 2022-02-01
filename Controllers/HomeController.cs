@@ -42,8 +42,7 @@ namespace VillaBNB.Controllers
                     Name = v.Name,
                     Category = v.Category.Name,
                     Photo = v.Photo,
-                })
-                .Take(3)
+                })                
                 .ToList();
             return View(villas);
         }

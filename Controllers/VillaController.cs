@@ -79,8 +79,8 @@ namespace VillaBNB.Controllers
         public IActionResult Edit(int id)
         {
             var villa = this.villaService.Details(id);
-            var villaForm = this.mapper.Map<VillaViewModel>(villa);
-            villaForm.Categories = (IEnumerable<CategoryViewModel>)this.villaService.AllCategories();
+            var villaForm = this.mapper.Map<VillaCategoryServiceModel>(villa);
+            villaForm.Categories = (IEnumerable<Category>)GetCategories();
 
 
             return View(villaForm);
