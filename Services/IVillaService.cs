@@ -34,6 +34,6 @@ namespace VillaBNB.Services
             );
 
 
-        IEnumerable<VillaCategoryServiceModel> AllCategories();
+        IEnumerable<CategoryViewModel> AllCategories();
     }
 }

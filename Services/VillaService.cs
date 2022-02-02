@@ -23,10 +23,10 @@ namespace VillaBNB.Services
             this.mapper = mapper.ConfigurationProvider;
         }
 
-        public IEnumerable<VillaCategoryServiceModel> AllCategories()
+        public IEnumerable<CategoryViewModel> AllCategories()
         {            
 
-            return this.db.Categories.ProjectTo<VillaCategoryServiceModel>(this.mapper).ToList();
+            return this.db.Categories.ProjectTo<CategoryViewModel>(this.mapper).ToList();
         }
 
         public int Create(string name, int cityId, int bedrooms, int bathrooms, decimal price, string imageUrl, int capacity, int categoryId)
