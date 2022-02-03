@@ -1,0 +1,17 @@
+﻿@model IEnumerable<VillaBNB.Services.Models.VillaServiceModel>
+
+<div class="row">
+    @foreach (var villa in Model)
+    {
+<div class="col-md-4">
+    <div class="card mb-3">
+        <img class="card-img-top" src="@villa.PhotoUrl" alt="@villa.Name @villa.CityName - (@villa.CategoryName)">
+        <div class="card-body text-center">
+            <h5 class="card-title text-center">@villa.PhotoUrl" alt="@villa.Name @villa.CityName - (@villa.CategoryName)</h5>
+
+<a asp-controller="Villa" asp-action="Edit" asp-route-id="@villa.Id" class="btn btn-warning">Edit</a>
+                    <a asp-controller="Villa" asp-action="Edit" asp-route-id="@villa.Id" class="btn btn-danger">Delete</a>}
+        </div>
+    </div>
+</div>}
+    </div>

@@ -7,15 +7,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using VillaBNB.Data;
 using VillaBNB.Models;
+using VillaBNB.Services;
 
 namespace VillaBNB.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext db;
-        public HomeController(ApplicationDbContext db)
+        private readonly IVillaService villaService;
+        public HomeController(ApplicationDbContext db,IVillaService villaService)
         {
             this.db = db;
+            this.villaService = villaService;
         }
 
 
@@ -31,20 +34,10 @@ namespace VillaBNB.Controllers
             return View(view);
         }
 
-        public IActionResult AllVillas()
+        public IActionResult AllVillas([FromQuery] AllVillasQueryModel query)
         {
-            var villas = this.db
-                .Villas
-                .OrderByDescending(v => v.Id)
-                .Select(v => new VillaListingModel
-                {
-                    Id = v.Id,
-                    Name = v.Name,
-                    Category = v.Category.Name,
-                    Photo = v.Photo,
-                })                
-                .ToList();
-            return View(villas);
+            return null;
+            //var queryresult = ;
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
