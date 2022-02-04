@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using VillaBNB.Data.Models;
 using VillaBNB.Models;
 using VillaBNB.Services.Models;
 
@@ -11,6 +12,13 @@ namespace VillaBNB.Services
     {
 
         VillaViewModel Details(int villaId);
+
+        VillaQueryServiceModel All(
+            string name = null,
+            string searchTerm = null,
+            VillaSorting sorting = VillaSorting.DateCreated,
+            int currentPage = 1,
+            int villasPerPage = int.MaxValue);
 
         int Create(
     string name,
@@ -32,6 +40,7 @@ namespace VillaBNB.Services
             string imageUrl,
             int capacity
             );
+
 
 
         IEnumerable<CategoryViewModel> AllCategories();

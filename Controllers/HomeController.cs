@@ -36,8 +36,17 @@ namespace VillaBNB.Controllers
 
         public IActionResult AllVillas([FromQuery] AllVillasQueryModel query)
         {
-            return null;
-            //var queryresult = ;
+            var queryResult = this.villaService.All(
+                query.Name,
+                query.SearchTerm,
+                query.Sorting,
+                query.CurrentPage,
+                AllVillasQueryModel.VillasPerPage
+                );           
+
+            query.TotalVillas = queryResult.TotalVillas;
+
+            return View(query);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

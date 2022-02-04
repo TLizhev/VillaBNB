@@ -23,6 +23,30 @@ namespace VillaBNB.Services
             this.mapper = mapper.ConfigurationProvider;
         }
 
+        public VillaQueryServiceModel All(string name = null, string searchTerm = null, VillaSorting sorting = VillaSorting.DateCreated, int currentPage = 1, int villasPerPage = int.MaxValue)
+        {
+            var villasQuery = this.db.Villas.Where(v=>v.CityId!=0);
+
+            villasQuery = sorting switch
+            {
+                VillaSorting.DateCreated => villasQuery.OrderByDescending(v => v.Name),
+                VillaSorting.Category => villasQuery.OrderByDescending(v => v.Category),
+                VillaSorting.City => villasQuery.OrderByDescending(v => v.City)
+            };
+
+            var totalVillas = villasQuery.Count();
+
+            var villas = GetVillas(villasQuery.Skip((currentPage-1)*villasPerPage).Take(villasPerPage));
+
+            return new VillaQueryServiceModel
+            {
+                TotalVillas = totalVillas,
+                CurrentPage = currentPage,
+                VillasPerPage = villasPerPage,
+                Villas = villas,
+            };
+        }
+
         public IEnumerable<CategoryViewModel> AllCategories()
         {            
 
@@ -57,6 +81,11 @@ namespace VillaBNB.Services
                 .FirstOrDefault();
 
             return result;
+        }
+
+        private IEnumerable<VillaServiceModel> GetVillas(IQueryable<Villa> villaQuery)
+        {
+          return  villaQuery.ProjectTo<VillaServiceModel>(this.mapper).ToList();
         }
 
         public bool Edit(int villaId, string name, int cityId, int bedrooms, int bathrooms, decimal price, string imageUrl, int capacity)

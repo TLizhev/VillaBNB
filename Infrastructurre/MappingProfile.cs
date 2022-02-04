@@ -16,6 +16,9 @@ namespace VillaBNB.Infrastructurre
         {
             this.CreateMap<Villa, VillaViewModel>();
 
+            this.CreateMap<Villa, VillaServiceModel>();
+
+
             this.CreateMap<Villa, VillaCategoryServiceModel>();
 
             this.CreateMap<Category, CategoryViewModel>();
