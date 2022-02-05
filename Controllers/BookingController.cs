@@ -43,6 +43,12 @@ namespace VillaBNB.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public IActionResult AllBookings()
+        {
+            var bookings = this.db.Bookings.ToList();
+            return View(bookings);
+        }
+
 
         public IEnumerable<VillasViewModel> GetVillas()
         {

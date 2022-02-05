@@ -1,0 +1,12 @@
+﻿@model IEnumerable<VillaBNB.Data.Models.Booking>
+
+@foreach (var booking in Model)
+{
+    <option value="@booking.Id">@booking.Id</option>
+    <option value="@booking.StartDate">@booking.StartDate</option>
+    <option value="@booking.TotalPrice">@booking.TotalPrice</option>
+    <option value="@booking.Villa">@booking.Villa</option>
+
+
+
+}
