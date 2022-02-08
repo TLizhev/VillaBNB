@@ -43,23 +43,6 @@ namespace VillaBNB.Controllers
                 return View();
             }
 
-            //var villa = new Villa
-            //{
-            //    Name = model.Name,
-            //    Photo=model.Photo,
-            //    Bedrooms = model.Bedrooms,               
-            //    Capacity = model.Capacity,
-            //    CategoryId=model.CategoryId,
-            //    StartDate = model.StartDate,
-            //    EndDate = model.EndDate,
-            //    Bathrooms = model.Bathrooms,
-            //    CityId = model.CityId,                                           
-            //};
-
-            //this.db.Villas.Add(villa);
-
-            //this.db.SaveChanges();
-
             var villa = this.villaService.Create(
                 model.Name,
                 model.CityId,
@@ -107,6 +90,12 @@ namespace VillaBNB.Controllers
 
         }
 
+        public IActionResult Details(int id)
+        {
+            var villa = this.villaService.Details(id);
+
+            return View(villa);
+        }
 
         private IEnumerable<CategoryViewModel> GetCategories()
         {
