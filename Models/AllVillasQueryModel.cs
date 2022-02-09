@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using VillaBNB.Services.Models;
 
 namespace VillaBNB.Models
 {
@@ -22,6 +23,6 @@ namespace VillaBNB.Models
 
         public IEnumerable<string> Names { get; set; }
 
-        public IEnumerable<VillaListingModel> Villas { get; set; }
+        public IEnumerable<VillaServiceModel> Villas { get; set; }
     }
 }

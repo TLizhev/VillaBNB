@@ -42,8 +42,8 @@
 <div class="row mb-5">
     <div class="col-md-6">
         <a class="btn btn-primary @(Model.CurrentPage == 1 ? "disabled" : string.Empty)"
-           asp-controller="Cars"
-           asp-action="All"
+           asp-controller="Home"
+           asp-action="AllVillas"
            asp-route-currentPage="@previousPage"
            asp-route-brand="@Model.Name"
            asp-route-searchTerm="@Model.SearchTerm"
@@ -55,4 +55,4 @@
 
 
 
-@*<partial name="_VillasPartial" model="@Model.Names" />*@
+<partial name="_VillasPartial" model="@Model.Villas" />
