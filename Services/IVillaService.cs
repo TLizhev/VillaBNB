@@ -13,6 +13,8 @@ namespace VillaBNB.Services
 
         VillaViewModel Details(int villaId);
 
+        IEnumerable<LatestVillaServiceModel> Latest();
+
         VillaQueryServiceModel All(
             string name = null,
             string searchTerm = null,

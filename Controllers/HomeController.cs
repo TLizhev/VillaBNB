@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -9,29 +10,45 @@ using VillaBNB.Data;
 using VillaBNB.Models;
 using VillaBNB.Services;
 
+
 namespace VillaBNB.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext db;
         private readonly IVillaService villaService;
-        public HomeController(ApplicationDbContext db,IVillaService villaService)
+        private readonly IMemoryCache cache;
+        public HomeController(ApplicationDbContext db,IVillaService villaService,IMemoryCache cache)
         {
             this.db = db;
             this.villaService = villaService;
+            this.cache = cache;
         }
 
 
         public IActionResult Index()
         {
-            var view = new IndexViewModel()
+            //var view = new IndexViewModel()
+            //{
+            //    VillasCount = this.db.Villas.Count(),
+            //    CitiesCount= this.db.Cities.Count(),
+            //    CountriesCount=this.db.Countries.Count(),
+            //    CategoriesCount=this.db.Categories.Count()
+            //};
+
+            var latestVillas = this.cache.Get<List<LatestVillaServiceModel>>(WebConstants.Cache.LatestVillaCacheKey);
+
+            if (latestVillas==null)
             {
-                VillasCount = this.db.Villas.Count(),
-                CitiesCount= this.db.Cities.Count(),
-                CountriesCount=this.db.Countries.Count(),
-                CategoriesCount=this.db.Categories.Count()
-            };
-            return View(view);
+                latestVillas = this.villaService
+                    .Latest().ToList();
+
+                var cacheOptions = new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(15));
+
+                this.cache.Set(WebConstants.Cache.LatestVillaCacheKey, latestVillas, cacheOptions);
+            }
+
+            return View(latestVillas);
         }
 
         public IActionResult AllVillas([FromQuery] AllVillasQueryModel query)
