@@ -1,5 +1,12 @@
 ﻿@model VillaViewModel
 
-<div class="col-md-6 offset-3">
-    <h2>@Model.Name @Model.PricePerNight</h2>
-</div>
+
+
+<div class="card col-md-6">
+    <img class="card-img-top" src="@Model.Photo" alt="@Model.Name">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text">@Model.Capacity</p>
+        <a asp-controller="Villa" asp-action="Details" asp-route-id="@Model.Id" class="btn btn-primary">Details</a>
+    </div>
+</div>            }
