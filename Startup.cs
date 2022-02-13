@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using VillaBNB.Data;
 using VillaBNB.Services;
+using VillaBNB.Services.Statistics;
 
 namespace VillaBNB
 {
@@ -32,6 +33,8 @@ namespace VillaBNB
             services.AddControllersWithViews();
 
             services.AddScoped<IVillaService, VillaService>();
+
+            services.AddScoped<IStatisticsService, StatisticsService>();
 
             services.AddAutoMapper(typeof(Startup));
         }

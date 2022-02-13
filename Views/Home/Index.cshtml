@@ -49,24 +49,22 @@
 
 <div class="jumbotron d-none" id="statistics">
     <div class="row">
-        <h2 class="col-md-4 text-center" id="total-cars"></h2>
-        <h2 class="col-md-4 text-center" id="total-users"></h2>
-        <h2 class="col-md-4 text-center" id="total-rents"></h2>
+        <h2 class="col-md-4 text-center" id="total-villas"></h2>
+        <h2 class="col-md-4 text-center" id="total-bookings"></h2>
     </div>
 </div>
 
-@*@section Scripts {
+@section Scripts {
     <script>$('#statistics-button').on('click', ev => {
             $.get('/api/statistics', (data) => {
-                $('#total-cars').text(data.totalCars + " Cars");
-                $('#total-users').text(data.totalUsers + " Users");
-                $('#total-rents').text(data.totalRents + " Rents");
+                $('#total-villas').text(data.totalVillas + " Villas");
+                $('#total-bookings').text(data.totalBookings + " Bookings");
 
                 $('#statistics').removeClass('d-none');
                 $('#statistics-button').hide();
             });
         });</script>
-}*@
+}
 
 @*<div class="text-center">
         <h1 class="display-4">Welcome</h1>
