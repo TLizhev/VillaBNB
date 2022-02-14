@@ -14,7 +14,7 @@ namespace VillaBNB.Models
 
         public new string CityName { get; set; }
 
-        public new string PhotoUrl { get; set; }
+        public new string Photo { get; set; }
 
         public new string CategoryName { get; set; }
     }

@@ -113,7 +113,7 @@ namespace VillaBNB.Services
 
         public IEnumerable<LatestVillaServiceModel> Latest()
         {
-            return this.db.Villas.OrderByDescending(x => x.Id).ProjectTo<LatestVillaServiceModel>(this.mapper).Take(3).ToList();
+            return this.db.Villas.OrderByDescending(x => x.Id).ProjectTo<LatestVillaServiceModel>(this.mapper).Take(5).ToList();
         }
     }
 }

@@ -4,10 +4,10 @@
     @foreach (var villa in Model)
     {
         <div class="card col-md-6">
-            <img class="card-img-top" src="@villa.PhotoUrl" alt="@villa.Name">
+            <img class="card-img-top" src="@villa.Photo" alt="@villa.Name">
             <div class="card-body">
                 <h5 class="card-title">@villa.Name</h5>
-                <p class="card-text">@villa.CategoryName</p>
+                <p class="card-text">@villa.Name</p>
                 <a asp-controller="Villa" asp-action="Details" asp-route-id="@villa.Id" class="btn btn-primary">Details</a>
                 <a asp-controller="Villa" asp-action="Edit" asp-route-id="@villa.Id" class="btn btn-outline-warning">Edit</a>
             </div>

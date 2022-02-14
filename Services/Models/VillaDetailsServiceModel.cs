@@ -15,6 +15,6 @@ namespace VillaBNB.Services.Models
 
         public int CityId { get; set; }
 
-        public string PhotoUrl { get; set; }
+        public string Photo { get; set; }
     }
 }
