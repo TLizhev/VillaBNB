@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using VillaBNB.Models;
 
 namespace VillaBNB.Data.Models
 {
@@ -36,6 +37,10 @@ namespace VillaBNB.Data.Models
         public DateTime EndDate { get; set; }
 
         public decimal PricePerNight { get; set; }
+        [ForeignKey(nameof(Owner))]
+        public int OwnerId { get; set; }
+
+        public Owner Owner { get; set; }
 
         public virtual ICollection<Image> Images => new HashSet<Image>();
         public virtual ICollection<Amenity> Amenities => new HashSet<Amenity>();

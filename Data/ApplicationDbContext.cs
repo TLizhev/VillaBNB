@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using VillaBNB.Data.Models;
+using VillaBNB.Models;
 
 namespace VillaBNB.Data
 {
@@ -28,6 +29,12 @@ namespace VillaBNB.Data
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<Booking> Bookings { get; set; }
+
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<Owner> Owners { get; set; }
+
+
 
 
 
