@@ -9,7 +9,7 @@ namespace VillaBNB.Models
 {
     public class AllVillasQueryModel
     {
-        public const int VillasPerPage = 3;
+        public const int VillasPerPage = 5;
 
         public string Name { get; set; }
         [Display(Name = "Search by text")]
