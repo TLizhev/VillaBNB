@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace VillaBNB.Data
 
         public DbSet<Booking> Bookings { get; set; }
 
-        public DbSet<User> Users { get; set; }
+        public new DbSet<User> Users { get; set; }
 
         public DbSet<Owner> Owners { get; set; }
 
@@ -38,18 +39,9 @@ namespace VillaBNB.Data
 
 
 
-        //protected override void OnModelCreating(ModelBuilder builder)
-        //{
-        //    base.OnModelCreating(builder);
-
-        //    builder.Entity<Villa>().HasOne<City>().WithMany().OnDelete(DeleteBehavior.Restrict);
-
-        //    builder.Entity<Country>().HasMany<City>().WithOne().OnDelete(DeleteBehavior.Restrict);
-
-        //    builder.Entity<City>().HasMany<Villa>().WithOne().OnDelete(DeleteBehavior.Restrict);
-
-        //    builder.Entity<Category>().HasMany<Villa>().WithOne().OnDelete(DeleteBehavior.Restrict);
-
-        //}
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
     }
 }

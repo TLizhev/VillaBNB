@@ -23,6 +23,9 @@ namespace VillaBNB.Data.Models
         public int CategoryId { get; set; }
 
         public virtual Category Category { get; set; }
+
+        public string Address { get; set; }
+
         [Url]
         public string Photo { get; set; }
 
@@ -40,7 +43,7 @@ namespace VillaBNB.Data.Models
         [ForeignKey(nameof(Owner))]
         public int OwnerId { get; set; }
 
-        public Owner Owner { get; set; }
+        public virtual Owner Owner { get; set; }
 
         public virtual ICollection<Image> Images => new HashSet<Image>();
         public virtual ICollection<Amenity> Amenities => new HashSet<Amenity>();
