@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using VillaBNB.Data.Models;
 
 namespace VillaBNB.Models
 {
@@ -18,6 +19,8 @@ namespace VillaBNB.Models
         public int CategoryId { get; set; }
         [Display(Name = "City")]
         public int CityId { get; set; }
+
+        public string Address { get; set; }
 
         [Url]
         public string Photo { get; set; }
@@ -39,5 +42,7 @@ namespace VillaBNB.Models
         public IEnumerable<CityViewModel>Cities { get; set; }
 
         public IEnumerable<CountryViewModel> Countries { get; set; }
+
+        public IEnumerable<Amenity> Amenities { get; set; }
     }
 }

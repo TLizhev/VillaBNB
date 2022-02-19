@@ -31,7 +31,8 @@ namespace VillaBNB.Services
             {
                 VillaSorting.DateCreated => villasQuery.OrderByDescending(v => v.Name),
                 VillaSorting.Category => villasQuery.OrderByDescending(v => v.Category),
-                VillaSorting.City => villasQuery.OrderByDescending(v => v.City)
+                VillaSorting.City => villasQuery.OrderByDescending(v => v.City),
+                _ => throw new NotImplementedException()
             };
 
             var totalVillas = villasQuery.Count();
@@ -53,12 +54,13 @@ namespace VillaBNB.Services
             return this.db.Categories.ProjectTo<CategoryViewModel>(this.mapper).ToList();
         }
 
-        public int Create(string name, int cityId, int bedrooms, int bathrooms, decimal price, string imageUrl, int capacity, int categoryId)
+        public int Create(string name, int cityId,string address, int bedrooms, int bathrooms, decimal price, string imageUrl, int capacity, int categoryId)
         {
             var villa = new Villa
             {
                 Name = name,
                 CityId=cityId,
+                Address=address,
                 Bedrooms = bedrooms,
                 Bathrooms = bathrooms,
                 PricePerNight = price,

@@ -46,6 +46,7 @@ namespace VillaBNB.Controllers
             var villa = this.villaService.Create(
                 model.Name,
                 model.CityId,
+                model.Address,
                 model.Bedrooms,
                 model.Bathrooms,
                 model.PricePerNight,

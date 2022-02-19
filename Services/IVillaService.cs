@@ -25,6 +25,7 @@ namespace VillaBNB.Services
         int Create(
     string name,
     int cityId,
+    string address,
     int bedrooms,
     int bathrooms,
     decimal price,

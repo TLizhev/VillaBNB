@@ -1,8 +1,8 @@
 ﻿@model VillaBNB.Models.VillaViewModel
-    
-    @{
-        ViewData["Title"] = "Home Page";
-    }
+
+@{
+    ViewData["Title"] = "Home Page";
+}
 
 <form method="post" class="col-md-6 offset-md-3"
       enctype="multipart/form-data">
@@ -34,6 +34,11 @@
         <span asp-validation-for="CityId" class="small text-danger"></span>
     </div>
     <div class="form-group">
+        <label asp-for="Address"></label>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div class="form-group">
         <label asp-for="Photo"></label>
         <input asp-for="Photo" class="form-control" />
         <span asp-validation-for="Photo" class="text-danger"></span>
@@ -59,5 +64,20 @@
         <input asp-for="PricePerNight" class="form-control" />
         <span asp-validation-for="PricePerNight" class="text-danger"></span>
     </div>
+    <div id="AmenitiesContainer">
+        <label asp-for="Amenities"></label>
+        <a class="btn btn-success" onclick="AddMoreAmenities()">+</a>
+    </div>
     <input type="submit" class="btn btn-primary" />
 </form>
+
+@section Scripts {
+    <script>
+        var amenityIndex = 0;
+        function AddMoreAmenities() {
+            $("#AmenitiesContainer").
+                append("<div class='form-control'>Name: <input type='text' name='Amenities[" + amenityIndex + "].Name' /> </div>");
+            amenityIndex++;
+        }
+    </script>
+}
