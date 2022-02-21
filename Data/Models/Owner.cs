@@ -20,7 +20,7 @@ namespace VillaBNB.Models
         [ForeignKey(nameof(User))]
         public string UserId { get; set; }
 
-        public User User { get; set; }
+        //public User User { get; set; }
 
         public IEnumerable<Villa> Villas { get; set; } = new List<Villa>();
 
