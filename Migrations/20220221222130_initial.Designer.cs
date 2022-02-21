@@ -10,8 +10,8 @@ using VillaBNB.Data;
 namespace VillaBNB.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220120221435_booking")]
-    partial class booking
+    [Migration("20220221222130_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -84,6 +84,10 @@ namespace VillaBNB.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -135,6 +139,8 @@ namespace VillaBNB.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -347,6 +353,9 @@ namespace VillaBNB.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Bathrooms")
                         .HasColumnType("int");
 
@@ -371,6 +380,12 @@ namespace VillaBNB.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("OwnerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Photo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<decimal>("PricePerNight")
                         .HasColumnType("decimal(18,2)");
 
@@ -385,7 +400,42 @@ namespace VillaBNB.Migrations
 
                     b.HasIndex("CountryId");
 
+                    b.HasIndex("OwnerId");
+
                     b.ToTable("Villas");
+                });
+
+            modelBuilder.Entity("VillaBNB.Models.Owner", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Owners");
+                });
+
+            modelBuilder.Entity("VillaBNB.Models.User", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -497,9 +547,26 @@ namespace VillaBNB.Migrations
                         .WithMany("Villas")
                         .HasForeignKey("CountryId");
 
+                    b.HasOne("VillaBNB.Models.Owner", "Owner")
+                        .WithMany("Villas")
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Category");
 
                     b.Navigation("City");
+
+                    b.Navigation("Owner");
+                });
+
+            modelBuilder.Entity("VillaBNB.Models.Owner", b =>
+                {
+                    b.HasOne("VillaBNB.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("VillaBNB.Data.Models.Category", b =>
@@ -524,6 +591,11 @@ namespace VillaBNB.Migrations
                     b.Navigation("Amenities");
 
                     b.Navigation("Images");
+                });
+
+            modelBuilder.Entity("VillaBNB.Models.Owner", b =>
+                {
+                    b.Navigation("Villas");
                 });
 #pragma warning restore 612, 618
         }
