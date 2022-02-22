@@ -30,6 +30,7 @@
                               new CountriesSeeder(),
                               new CategoriesSeeder(),
                               new CitiesSeeder(),
+                              new VillasSeeder(),
                           };
 
             foreach (var seeder in seeders)
