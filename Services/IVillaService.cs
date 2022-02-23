@@ -23,15 +23,16 @@ namespace VillaBNB.Services
             int villasPerPage = int.MaxValue);
 
         int Create(
-    string name,
-    int cityId,
-    string address,
-    int bedrooms,
-    int bathrooms,
-    decimal price,
-    string imageUrl,
-    int capacity,
-    int categoryId);
+            int ownerId,
+            string name,
+            int cityId,
+            string address,
+            int bedrooms,
+            int bathrooms,
+            decimal price,
+            string imageUrl,
+            int capacity,
+            int categoryId);
 
         bool Edit(
             int villaId,

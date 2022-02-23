@@ -54,7 +54,7 @@ namespace VillaBNB.Controllers
             this.data.Owners.Add(ownerData);
             this.data.SaveChanges();
 
-            return RedirectToAction(nameof(HomeController.AllVillas), "Villas");
+            return RedirectToAction("Index","Home");
         }
     }
 }
