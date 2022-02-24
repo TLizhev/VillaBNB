@@ -22,7 +22,7 @@ namespace VillaBNB.Models
 
         public string Address { get; set; }
 
-        public int OwnerId { get; set; }
+        //public int OwnerId { get; set; }
 
         [Url]
         public string Photo { get; set; }

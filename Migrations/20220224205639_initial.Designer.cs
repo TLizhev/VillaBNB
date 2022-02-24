@@ -10,7 +10,7 @@ using VillaBNB.Data;
 namespace VillaBNB.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220221222130_initial")]
+    [Migration("20220224205639_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -380,7 +380,7 @@ namespace VillaBNB.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OwnerId")
+                    b.Property<int?>("OwnerId")
                         .HasColumnType("int");
 
                     b.Property<string>("Photo")
@@ -419,11 +419,9 @@ namespace VillaBNB.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Owners");
                 });
@@ -549,24 +547,13 @@ namespace VillaBNB.Migrations
 
                     b.HasOne("VillaBNB.Models.Owner", "Owner")
                         .WithMany("Villas")
-                        .HasForeignKey("OwnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OwnerId");
 
                     b.Navigation("Category");
 
                     b.Navigation("City");
 
                     b.Navigation("Owner");
-                });
-
-            modelBuilder.Entity("VillaBNB.Models.Owner", b =>
-                {
-                    b.HasOne("VillaBNB.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("VillaBNB.Data.Models.Category", b =>

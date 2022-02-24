@@ -54,11 +54,11 @@ namespace VillaBNB.Services
             return this.db.Categories.ProjectTo<CategoryViewModel>(this.mapper).ToList();
         }
 
-        public int Create(int ownerId,string name, int cityId,string address, int bedrooms, int bathrooms, decimal price, string imageUrl, int capacity, int categoryId)
+        public int Create(/*int ownerId,*/string name, int cityId,string address, int bedrooms, int bathrooms, decimal price, string imageUrl, int capacity, int categoryId)
         {
             var villa = new Villa
             {
-                OwnerId = ownerId,
+                //OwnerId = ownerId,
                 Name = name,
                 CityId=cityId,
                 Address=address,
