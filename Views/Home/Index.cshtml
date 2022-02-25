@@ -25,7 +25,7 @@
             <div class="carousel-item @(i == 0 ? "active" : string.Empty)">
                 <img class="d-block w-100" src="@villa.Photo" alt="@villa.Name @villa.Category">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5><a class="btn btn-primary" asp-controller="Villa" asp-action="Details" asp-route-id="@villa.Id"></a></h5>
+                    <h5><a class="btn btn-primary" asp-controller="Villa" asp-action="Details" asp-route-id="@villa.Id">Details</a></h5>
                 </div>
             </div>}
     </div>
