@@ -40,9 +40,11 @@ namespace VillaBNB.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View();
+                model.Categories = this.villaService.AllCategories();
+                return View(model);
             }
 
+            
             var villa = this.villaService.Create(
                 //model.OwnerId,
                 model.Name,
