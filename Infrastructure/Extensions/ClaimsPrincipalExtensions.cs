@@ -8,6 +8,6 @@
             => user.FindFirst(ClaimTypes.NameIdentifier).Value;
 
         public static bool IsAdmin(this ClaimsPrincipal user)
-    => user.IsInRole("Administator");
+    => user.IsInRole("Administrator");
     }
 }
