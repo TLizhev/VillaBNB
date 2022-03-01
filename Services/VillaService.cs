@@ -118,5 +118,12 @@ namespace VillaBNB.Services
         {
             return this.db.Villas.OrderByDescending(x => x.Id).ProjectTo<LatestVillaServiceModel>(this.mapper).Take(5).ToList();
         }
+
+        public async Task Delete(int id)
+        {
+            var villa = this.db.Villas.FirstOrDefault(x => x.Id == id);
+            this.db.Remove(villa);
+            await this.db.SaveChangesAsync();
+        }
     }
 }
