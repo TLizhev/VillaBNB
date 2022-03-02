@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using MoiteRecepti.Data.Seeding;
 using VillaBNB.Data;
 using VillaBNB.Services;
+using VillaBNB.Services.Models.Owner;
 using VillaBNB.Services.Statistics;
 
 namespace VillaBNB
@@ -37,6 +38,8 @@ namespace VillaBNB
             services.AddScoped<IVillaService, VillaService>();
 
             services.AddScoped<IStatisticsService, StatisticsService>();
+
+            services.AddScoped<IOwnerService, OwnerService>();
 
             services.AddAutoMapper(typeof(Startup));
 
