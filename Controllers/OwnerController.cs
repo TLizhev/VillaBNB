@@ -32,7 +32,7 @@ namespace VillaBNB.Controllers
         {
             var userId = this.User.Id();
 
-            var userIdAlreadyOwner = this.data.Owners.Any(o => o.UserId == userId);
+            var userIdAlreadyOwner = this.data.Owners.Any(o => o.UserId == int.Parse(userId));
 
             if (userIdAlreadyOwner)
             {
@@ -48,7 +48,7 @@ namespace VillaBNB.Controllers
             {
                 Name = owner.Name,
                 PhoneNumber = owner.PhoneNumber,
-                UserId = userId,
+                UserId = int.Parse(userId),
             };
 
             this.data.Owners.Add(ownerData);

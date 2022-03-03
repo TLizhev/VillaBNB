@@ -103,12 +103,23 @@ namespace VillaBNB.Controllers
 
             return RedirectToAction("Index", "Home");
 
+            [HttpGet("{id}")]
+           IActionResult Delete(int id)
+            {
+                var villa = this.villaService.Details(id);
+                if (villa==null)
+                {
+                    return View("NotFound");
+                }
+
+                return View(villa);
+            }
 
         }
         [HttpPost]
-        public async Task<IActionResult> Delete(int id)
+        public IActionResult Delete(int id)
         {
-            await this.villaService.Delete(id);
+            this.villaService.Delete(id);
             return RedirectToAction("Index", "Home");
         }
 
