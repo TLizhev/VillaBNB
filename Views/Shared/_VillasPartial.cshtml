@@ -10,6 +10,7 @@
                 <p class="card-text">@villa.Name</p>
                 <a asp-controller="Villa" asp-action="Details" asp-route-id="@villa.Id" class="btn btn-primary">Details</a>
                 <a asp-controller="Villa" asp-action="Edit" asp-route-id="@villa.Id" class="btn btn-outline-warning">Edit</a>
+                <a asp-controller="Villa" asp-action="Delete" asp-route-id="@villa.Id" class="btn btn-outline-danger">Delete</a>
             </div>
         </div>
     }
