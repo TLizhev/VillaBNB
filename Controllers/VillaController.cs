@@ -38,8 +38,8 @@ namespace VillaBNB.Controllers
 
             Categories = this.GetCategories(),
             Cities = this.GetCities(),
-            Countries=this.GetCountries(),
-            
+            Countries = this.GetCountries(),
+
         });
 
         [HttpPost]
@@ -102,19 +102,6 @@ namespace VillaBNB.Controllers
             );
 
             return RedirectToAction("Index", "Home");
-
-            [HttpGet("{id}")]
-           IActionResult Delete(int id)
-            {
-                var villa = this.villaService.Details(id);
-                if (villa==null)
-                {
-                    return View("NotFound");
-                }
-
-                return View(villa);
-            }
-
         }
         [HttpPost]
         public IActionResult Delete(int id)
@@ -132,10 +119,10 @@ namespace VillaBNB.Controllers
 
         private IEnumerable<CategoryViewModel> GetCategories()
         {
-           return this.db.Categories.Select(c => new CategoryViewModel
+            return this.db.Categories.Select(c => new CategoryViewModel
             {
-               Id=c.Id,
-               Name = c.Name
+                Id = c.Id,
+                Name = c.Name
             }).ToList();
         }
 
