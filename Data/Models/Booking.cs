@@ -19,5 +19,7 @@ namespace VillaBNB.Data.Models
         public DateTime EndDate { get; set; }
 
         public decimal TotalPrice { get; set; }
+
+        public bool IsAvailable { get; set; }
     }
 }

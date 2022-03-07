@@ -34,8 +34,6 @@ namespace VillaBNB.Controllers
         public IActionResult Add() => View(new VillaViewModel
         {
 
-
-
             Categories = this.GetCategories(),
             Cities = this.GetCities(),
             Countries = this.GetCountries(),
@@ -88,7 +86,6 @@ namespace VillaBNB.Controllers
         [HttpPost]
         public IActionResult Edit(int id, VillaViewModel villa)
         {
-
 
             var edited = this.villaService.Edit(
                 id,
