@@ -28,13 +28,13 @@ namespace VillaBNB.Controllers
 
         public IActionResult Index()
         {
-            //var view = new IndexViewModel()
-            //{
-            //    VillasCount = this.db.Villas.Count(),
-            //    CitiesCount= this.db.Cities.Count(),
-            //    CountriesCount=this.db.Countries.Count(),
-            //    CategoriesCount=this.db.Categories.Count()
-            //};
+            var view = new IndexViewModel()
+            {
+                VillasCount = this.db.Villas.Count(),
+                CitiesCount = this.db.Cities.Count(),
+                CountriesCount = this.db.Countries.Count(),
+                CategoriesCount = this.db.Categories.Count()
+            };
 
             var latestVillas = this.cache.Get<List<LatestVillaServiceModel>>(WebConstants.Cache.LatestVillaCacheKey);
 
