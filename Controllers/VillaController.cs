@@ -100,7 +100,13 @@ namespace VillaBNB.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-        [HttpPost]
+
+        //public IActionResult Delete(int villaId)
+        //{
+        //    return this.View();
+        //}
+
+
         public IActionResult Delete(int id)
         {
             this.villaService.Delete(id);

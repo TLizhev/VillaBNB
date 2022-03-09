@@ -45,7 +45,7 @@ namespace VillaBNB.Services
             int capacity
             );
 
-        Task Delete(int id);
+        bool Delete(int id);
 
         IEnumerable<CategoryViewModel> AllCategories();
     }
