@@ -36,6 +36,17 @@ namespace VillaBNB.Controllers
                 VillaId = model.VillaId,
 
             };
+
+            var bookingList = this.db.Bookings.ToList();
+
+            foreach (var item in bookingList)
+            {
+                if (item.VillaId == model.VillaId && item.EndDate > model.StartDate)
+                {
+                    return Json ("Villa does not exist");
+                }
+            }
+
             this.db.Bookings.Add(booking);
 
             this.db.SaveChanges();
