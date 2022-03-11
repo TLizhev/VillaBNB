@@ -6,21 +6,23 @@
             <th scope="col">ID</th>
             <th scope="col">Price</th>
             <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
         </tr>
     </thead>
     <tbody>
         @for (int i = 0; i < Model.Count(); i++)
         {
-            <tr>
-                <td>@Model[i].Id</td>
-                <td>@Model[i].TotalPrice</td>
-                <td>@Model[i].StartDate</td>
-            </tr>
+        <tr>
+            <td>@Model[i].Id</td>
+            <td>@Model[i].TotalPrice</td>
+            <td>@Model[i].StartDate.ToShortDateString()</td>
+            <td>@Model[i].EndDate.ToShortDateString()</td>
+        </tr>
         }
 
     </tbody>
 </table>
-@foreach (var item in Model)
+@*@foreach (var item in Model)
 {
     <option value="@item.VillaId">@item.VillaId</option>
-}
+}*@

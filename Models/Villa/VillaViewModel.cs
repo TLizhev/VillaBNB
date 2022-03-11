@@ -33,8 +33,10 @@ namespace VillaBNB.Models
 
         public int Bathrooms { get; set; }
 
+        [Display(Name= "Start Date")]
         public DateTime StartDate { get; set; }
 
+        [Display(Name = "End Date")]
         public DateTime EndDate { get; set; }
         [Display(Name = "Price")]
         public decimal PricePerNight { get; set; }
