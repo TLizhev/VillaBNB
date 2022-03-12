@@ -15,11 +15,15 @@ namespace VillaBNB.Models
 
         [Required]
         public string Name { get; set; }
+        [Required]
         [Display(Name = "Category")]
         public int CategoryId { get; set; }
+        [Required]
         [Display(Name = "City")]
         public int CityId { get; set; }
 
+        [Required]
+        [MaxLength(50)]
         public string Address { get; set; }
 
         //public int OwnerId { get; set; }
