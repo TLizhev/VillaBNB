@@ -26,8 +26,6 @@ namespace VillaBNB.Models
         [MaxLength(50)]
         public string Address { get; set; }
 
-        //public int OwnerId { get; set; }
-
         [Url]
         public string Photo { get; set; }
 

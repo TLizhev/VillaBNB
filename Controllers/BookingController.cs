@@ -34,7 +34,6 @@ namespace VillaBNB.Controllers
                 EndDate = model.EndDate,
                 TotalPrice = model.TotalCost,
                 VillaId = model.VillaId,
-
             };
 
             var bookingList = this.db.Bookings.ToList();

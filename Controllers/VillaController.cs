@@ -19,25 +19,21 @@ namespace VillaBNB.Controllers
     {
         private readonly ApplicationDbContext db;
         private readonly IVillaService villaService;
-        private readonly IOwnerService owners;
         private readonly IMapper mapper;
 
-        public VillaController(ApplicationDbContext db, IVillaService villas, IMapper mapper, IOwnerService owners)
+        public VillaController(ApplicationDbContext db, IVillaService villas, IMapper mapper)
         {
             this.db = db;
             this.villaService = villas;
             this.mapper = mapper;
-            this.owners = owners;
         }
 
         [HttpGet]
         public IActionResult Add() => View(new VillaViewModel
         {
-
             Categories = this.GetCategories(),
             Cities = this.GetCities(),
             Countries = this.GetCountries(),
-
         });
 
         [HttpPost]
@@ -49,14 +45,7 @@ namespace VillaBNB.Controllers
                 return View(model);
             }
 
-            //if (!this.owners.IsOwner(this.User.Id()))
-            //{
-            //    return RedirectToAction("Home", "Index");
-            //}
-
-
             var villa = this.villaService.Create(
-                //model.OwnerId,
                 model.Name,
                 model.CityId,
                 model.Address,
@@ -100,11 +89,6 @@ namespace VillaBNB.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-
-        //public IActionResult Delete(int villaId)
-        //{
-        //    return this.View();
-        //}
 
 
         public IActionResult Delete(int id)
