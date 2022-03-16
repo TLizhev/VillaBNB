@@ -4,6 +4,7 @@
     <thead>
         <tr>
             <th scope="col">ID</th>
+            <th scope="col">VillaId</th>
             <th scope="col">Price</th>
             <th scope="col">Start Date</th>
             <th scope="col">End Date</th>
@@ -14,6 +15,7 @@
         {
         <tr>
             <td>@Model[i].Id</td>
+            <td>@Model[i].VillaId</td>
             <td>@Model[i].TotalPrice</td>
             <td>@Model[i].StartDate.ToShortDateString()</td>
             <td>@Model[i].EndDate.ToShortDateString()</td>

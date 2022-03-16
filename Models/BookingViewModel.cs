@@ -23,7 +23,7 @@ namespace VillaBNB.Models
         [Display(Name = "Total Cost")]
         public decimal TotalCost { get; set; }
 
-        [Display(Name = "People")]
+        [Display(Name = "Number of guests")]
         public int PeopleCount { get; set; }
 
         public IEnumerable<VillasViewModel> Villas { get; set; }

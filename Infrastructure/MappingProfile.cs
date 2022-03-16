@@ -31,6 +31,8 @@ namespace VillaBNB.Infrastructurre
 
             this.CreateMap<VillaViewModel, VillaServiceModel>();
 
+            this.CreateMap<BookingViewModel, Booking>();
+
         }
     }
 }
