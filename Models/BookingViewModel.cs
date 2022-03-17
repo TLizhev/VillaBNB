@@ -8,9 +8,11 @@ namespace VillaBNB.Models
 {
     public class BookingViewModel
     {
+        public int VillaId { get; set; }
+
         [Required]
         [Display(Name = "Villa")]
-        public int VillaId { get; set; }
+        public string VillaName { get; set; }
 
         [Required]
         [Display(Name = "Start Date")]
