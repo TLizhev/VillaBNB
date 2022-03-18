@@ -54,8 +54,7 @@ namespace VillaBNB.Controllers
                 model.PricePerNight,
                 model.Photo,
                 model.Capacity,
-                model.CategoryId
-                );
+                model.CategoryId);
 
             return RedirectToAction("Index", "Home");
         }
