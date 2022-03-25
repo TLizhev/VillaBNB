@@ -12,11 +12,12 @@ namespace VillaBNB.Models
         public const int VillasPerPage = 5;
 
         public string Name { get; set; }
-        [Display(Name = "Search by text")]
+        [Display(Name = "Search")]
         public string SearchTerm { get; set; }
-
+        [Display(Name ="Total Villas")]
         public int TotalVillas { get; set; }
 
+        [Display(Name ="Current Page")]
         public int CurrentPage { get; set; } = 1;
 
         public VillaSorting Sorting { get; set; }
