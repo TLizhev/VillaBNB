@@ -8,6 +8,8 @@ namespace VillaBNB.Models
 {
     public class BookingViewModel
     {
+        private readonly decimal price;
+
         public int VillaId { get; set; }
 
         [Required]
@@ -22,8 +24,14 @@ namespace VillaBNB.Models
         [Display(Name = "End Date")]
         public DateTime EndDate { get; set; }
 
+        public decimal PricePerNight { get; set; }
+
         [Display(Name = "Total Cost")]
-        public decimal TotalCost { get; set; }
+        public decimal TotalCost 
+        {
+            get => price;
+            set { value = PricePerNight * (EndDate - StartDate).Days; }
+        }
 
         [Display(Name = "Number of guests")]
         public int PeopleCount { get; set; }
