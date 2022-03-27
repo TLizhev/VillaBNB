@@ -30,9 +30,10 @@ namespace VillaBNB.Controllers
             }
             var booking = new Booking
             {
+                Id = model.VillaId,
                 StartDate = model.StartDate,
                 EndDate = model.EndDate,
-                TotalPrice = model.TotalCost,
+                TotalPrice = model.PricePerNight*(model.EndDate-model.StartDate).Days,
                 VillaId = model.VillaId,
             };
 
