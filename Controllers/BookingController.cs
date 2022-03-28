@@ -30,11 +30,10 @@ namespace VillaBNB.Controllers
             }
             var booking = new Booking
             {
-                Id = model.VillaId,
                 StartDate = model.StartDate,
                 EndDate = model.EndDate,
                 TotalPrice = model.PricePerNight*(model.EndDate-model.StartDate).Days,
-                VillaId = model.VillaId,
+                VillaId = int.Parse(model.VillaName),
             };
 
             var bookingList = this.db.Bookings.ToList();
@@ -45,6 +44,11 @@ namespace VillaBNB.Controllers
                 {
                     return Json ("Villa does not exist");
                 }
+            }
+
+            if (booking.TotalPrice==0)
+            {
+                return Json("Cannot book villa for less than 2 days");
             }
 
             this.db.Bookings.Add(booking);
