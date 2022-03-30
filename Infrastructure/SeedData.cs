@@ -50,6 +50,7 @@
                 new Category { Name = "Village" },
                 new Category { Name = "Beach" },
                 new Category { Name = "Premium" },
+                new Category {Name = "Mountain"},
             });
 
             data.SaveChanges();
