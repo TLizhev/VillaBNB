@@ -30,6 +30,7 @@ namespace VillaBNB.Controllers
         [Authorize]
         public IActionResult Become(BecomeOwnerFormModel owner)
         {
+            
             var userId = this.User.Id();
 
             var userIdAlreadyOwner = this.data.Owners.Any(o => o.UserId == int.Parse(userId));
