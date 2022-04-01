@@ -27,7 +27,8 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h5><a class="btn btn-primary" asp-controller="Villa" asp-action="Details" asp-route-id="@villa.Id">Details</a></h5>
                 </div>
-            </div>}
+            </div>
+        }
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -55,7 +56,8 @@
 </div>
 
 @section Scripts {
-    <script>$('#statistics-button').on('click', ev => {
+    <script>
+        $('#statistics-button').on('click', ev => {
             $.get('/api/statistics', (data) => {
                 $('#total-villas').text(data.totalVillas + " Villas");
                 $('#total-bookings').text(data.totalBookings + " Bookings");
