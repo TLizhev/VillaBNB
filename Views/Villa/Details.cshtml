@@ -1,59 +1,67 @@
 ﻿@model VillaViewModel
 
 
-<link href="~/lib/font-awesome/css/fontawesome.css" rel="stylesheet" />
-@*<img class="card-img-top" src="@Model.Photo" alt="@Model.Name">
-    <div class="card-body">
-        <h5 class="card-title">@Model.Name</h5>
-        <p class="card-text">@Model.Capacity</p>
-        <p class="card-text">@Model.Bathrooms</p>*@
-<div class="item-figure">
-    <img class="img-fluid w-100" src="@Model.Photo" alt="@Model.Name" />
-</div>
-<div class="item-feature">
-    <ul>
-        <li>
-            <div class="feature-wrap">
-                <div class="media">
-                    <div class="feature-icon">
-                        <i class="far fa-clock"></i>
-                    </div>
-                    <div class="media-body space-sm">
-                        <div class="feature-title">Address</div>
-                        <div class="feature-sub-title">@Model.Address</div>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="feature-wrap">
-                <div class="media">
-                    <div class="feature-icon">
-                        <i class="fas fa-bed"></i>
-                    </div>
-                    <div class="media-body space-sm">
-                        <div class="feature-title">Bathrooms</div>
-                        <div class="feature-sub-title">@Model.Bathrooms</div>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="feature-wrap">
-                <div class="media">
-                    <div class="feature-icon">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <div class="media-body space-sm">
-                        <div class="feature-title">Bedrooms</div>
-                        <div class="feature-sub-title">@Model.Bedrooms</div>
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
+    <style>
+        a:hover {
+            text-align: center
+        }
+    </style>
 
-<a asp-controller="Villa" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-warning">Edit</a>
-<a asp-controller="Villa" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger">Delete</a>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/lib/font-awesome/css/fontawesome.css" rel="stylesheet" />
+    @*<img class="card-img-top" src="@Model.Photo" alt="@Model.Name">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <p class="card-text">@Model.Capacity</p>
+            <p class="card-text">@Model.Bathrooms</p>*@
+    <div class="item-figure">
+        <img class="img-fluid w-100" src="@Model.Photo" alt="@Model.Name" />
+    </div>
+    <div class="item-feature">
+        <ul>
+            <li>
+                <div class="feature-wrap">
+                    <div class="media">
+                        <div class="feature-icon">
+                            <i class="far fa-clock"></i>
+                        </div>
+                        <div class="media-body space-sm">
+                            <div class="feature-title">Address</div>
+                            <div class="feature-sub-title">@Model.Address</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="feature-wrap">
+                    <div class="media">
+                        <div class="feature-icon">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <div class="media-body space-sm">
+                            <div class="feature-title">Bathrooms</div>
+                            <div class="feature-sub-title">@Model.Bathrooms</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="feature-wrap">
+                    <div class="media">
+                        <div class="feature-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="media-body space-sm">
+                            <div class="feature-title">Bedrooms</div>
+                            <div class="feature-sub-title">@Model.Bedrooms</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <a asp-controller="Villa" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-warning">Edit</a>
+    <a asp-controller="Villa" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger">Delete</a>
 
