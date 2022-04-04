@@ -7,8 +7,8 @@ namespace VillaBNB.Services.Statistics
 {
     public class StatisticsServiceModel
     {
-        public int VillasCount { get; set; }
+        public int VillasCount { get; init; }
 
-        public int BookingsCount { get; set; }
+        public int BookingsCount { get; init; }
     }
 }
