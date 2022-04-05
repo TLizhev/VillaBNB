@@ -14,6 +14,7 @@ namespace VillaBNB.Models
         public int Id { get; set; }
 
         [Required]
+        [MinLength(5)]
         public string Name { get; set; }
         [Required]
         [Display(Name = "Category")]
@@ -28,10 +29,12 @@ namespace VillaBNB.Models
 
         [Url]
         public string Photo { get; set; }
+        [Range(1, 10)]
 
         public int Capacity { get; set; }
-
+        [Range(1,10)]
         public int Bedrooms { get; set; }
+        [Range(1, 10)]
 
         public int Bathrooms { get; set; }
 
