@@ -45,7 +45,7 @@ namespace VillaBNB.Controllers
                 return View(model);
             }
 
-            var villa = this.villaService.Create(
+                this.villaService.Create(
                 model.Name,
                 model.CityId,
                 model.Address,
