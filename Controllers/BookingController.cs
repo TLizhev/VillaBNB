@@ -21,7 +21,7 @@ namespace VillaBNB.Controllers
         {
             Villas = this.GetVillas(),
         });
-        //S
+        
         [HttpPost]
         public IActionResult Add(BookingViewModel model)
         {
