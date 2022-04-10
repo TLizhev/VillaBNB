@@ -15,6 +15,8 @@ namespace VillaBNB.Data.Models
 
         public string Name { get; set; }
 
+        public string Details { get; set; }
+
         [ForeignKey(nameof(City))]
         public int CityId { get; set; }
 
