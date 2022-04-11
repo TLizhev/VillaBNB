@@ -8,8 +8,6 @@ namespace VillaBNB.Models
 {
     public class BookingViewModel
     {
-        private readonly decimal price;
-
         public int VillaId { get; set; }
 
         [Required]

@@ -33,12 +33,12 @@ namespace VillaBNB.Controllers
             
             var userId = this.User.Id();
 
-            var userIdAlreadyOwner = this.data.Owners.Any(o => o.UserId == int.Parse(userId));
+            //var userIdAlreadyOwner = this.data.Owners.Any(o => o.UserId == int.Parse(userId));
 
-            if (userIdAlreadyOwner)
-            {
-                return BadRequest();
-            }
+            //if (userIdAlreadyOwner)
+            //{
+            //    return BadRequest();
+            //}
 
             if (!ModelState.IsValid)
             {
@@ -49,7 +49,7 @@ namespace VillaBNB.Controllers
             {
                 Name = owner.Name,
                 PhoneNumber = owner.PhoneNumber,
-                UserId = int.Parse(userId),
+                //UserId = int.Parse(userId),
             };
 
             this.data.Owners.Add(ownerData);

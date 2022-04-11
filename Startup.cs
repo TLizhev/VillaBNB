@@ -39,7 +39,7 @@ namespace VillaBNB
 
             services.AddScoped<IStatisticsService, StatisticsService>();
 
-            services.AddScoped<IOwnerService, OwnerService>();
+            //services.AddScoped<IOwnerService, OwnerService>();
 
             services.AddAutoMapper(typeof(Startup));
 

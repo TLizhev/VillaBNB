@@ -6,7 +6,7 @@ using VillaBNB.Data;
 
 namespace VillaBNB.Services.Models.Owner
 {
-    public class OwnerService : IOwnerService
+    public class OwnerService /*: /*IOwnerService*/
     {
 
         private readonly ApplicationDbContext data;
@@ -16,14 +16,14 @@ namespace VillaBNB.Services.Models.Owner
             this.data = data;
         }
 
-        public int IdByUser(int userId)
-        {
-            return this.data.Owners.Where(o => o.UserId==userId).Select(o=>o.Id).First();
-        }
+        //public int IdByUser(int userId)
+        //{
+        //    return this.data.Owners.Where(o => o.UserId==userId).Select(o=>o.Id).First();
+        //}
 
-        public bool IsOwner(int userId)
-        {
-            return this.data.Owners.Any(o => o.UserId == userId);
-        }
+        //public bool IsOwner(int userId)
+        //{
+        //    return this.data.Owners.Any(o => o.UserId == userId);
+        //}
     }
 }

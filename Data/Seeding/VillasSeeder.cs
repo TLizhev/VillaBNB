@@ -10,7 +10,7 @@ namespace VillaBNB.Data.Seeding
     {
         public async Task SeedAsync(ApplicationDbContext data, IServiceProvider services)
         {
-            if (data.Countries.Any())
+            if (data.Villas.Any())
             {
                 return;
             }

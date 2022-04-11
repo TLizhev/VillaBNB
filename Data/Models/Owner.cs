@@ -17,8 +17,8 @@ namespace VillaBNB.Models
 
         public string PhoneNumber { get; set; }
 
-        [ForeignKey(nameof(User))]
-        public int UserId { get; set; }
+        //[ForeignKey(nameof(User))]
+        //public int UserId { get; set; }
 
         //public User User { get; set; }
 

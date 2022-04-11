@@ -10,8 +10,8 @@ using VillaBNB.Data;
 namespace VillaBNB.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220410185725_detailsforvilla")]
-    partial class detailsforvilla
+    [Migration("20220411200916_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -421,9 +421,6 @@ namespace VillaBNB.Migrations
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
