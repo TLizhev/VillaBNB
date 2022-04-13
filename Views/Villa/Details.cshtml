@@ -10,50 +10,52 @@
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/site.css" />
 <link href="~/lib/font-awesome/css/fontawesome.css" rel="stylesheet" />
-@*<img class="card-img-top" src="@Model.Photo" alt="@Model.Name">
-    <div class="card-body">
-        <h5 class="card-title">@Model.Name</h5>
-        <p class="card-text">@Model.Capacity</p>
-        <p class="card-text">@Model.Bathrooms</p>*@
+
 <div class="item-figure">
     <img class="img-fluid w-100" src="@Model.Photo" alt="@Model.Name" />
 </div>
 <div class="item-feature">
     <ul>
         <li>
-            <div class="feature-wrap">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
-                </svg>
-                <div class="media-body space-sm">
-                    <div class="feature-title">Address</div>
-                    <div class="feature-sub-title">@Model.Address</div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="feature-wrap">
-                <div class="media">
-                    <div class="feature-icon">
-                        <i class="fas fa-bed"></i>
-                    </div>
+            <div class="col-md-3">
+                <div class="feature-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                    </svg>
                     <div class="media-body space-sm">
-                        <div class="feature-title">Bathrooms</div>
-                        <div class="feature-sub-title">@Model.Bathrooms</div>
+                        <div class="feature-title">Address</div>
+                        <div class="feature-sub-title">@Model.Address</div>
                     </div>
                 </div>
             </div>
         </li>
         <li>
-            <div class="feature-wrap">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                </svg>
-                <div class="media-body space-sm">
-                    <i class="bi bi-person-circle"></i>
-                    <div class="feature-title">Bedrooms</div>
-                    <div class="feature-sub-title">@Model.Bedrooms</div>
+            <div class="col-md-3">
+                <div class="feature-wrap">
+                    <div class="media">
+                        <div class="feature-icon">
+                            <i class="fas fa-bed"></i>
+                        </div>
+                        <div class="media-body space-sm">
+                            <div class="feature-title">Bathrooms</div>
+                            <div class="feature-sub-title">@Model.Bathrooms</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="col-md-12">
+                <div class="feature-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                    </svg>
+                    <div class="media-body space-sm">
+                        <i class="bi bi-person-circle"></i>
+                        <div class="feature-title">Bedrooms</div>
+                        <div class="feature-sub-title">@Model.Bedrooms</div>
+                    </div>
                 </div>
             </div>
         </li>
@@ -63,6 +65,6 @@
 <form method="post" id="antiForgeryForm"></form>
 
 
-<a asp-controller="Villa" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-warning">Edit</a>
-<a asp-controller="Villa" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger">Delete</a>
+    <a asp-controller="Villa" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-warning">Edit</a>
+    <a asp-controller="Villa" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger">Delete</a>
 
