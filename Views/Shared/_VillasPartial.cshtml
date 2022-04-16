@@ -1,13 +1,25 @@
 ﻿@model IEnumerable<VillaServiceModel>
 
+<style>
+    #img {
+        float: left;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    a{
+        margin-top: 25px;
+    }
+</style>
+
 <div class="row">
     @foreach (var villa in Model)
     {
         <div class="card col-md-3">
-            <img class="card-img-top" src="@villa.Photo" alt="@villa.Name">
+            <img id="img" class="card-img-top" src="@villa.Photo" alt="@villa.Name">
             <div class="card-body">
-                <h5 class="card-title">@villa.Name</h5>
-                <p class="card-text">@villa.Name</p>
+                <h5 class="card-title text-center">@villa.Name</h5>
                 <a asp-controller="Villa" asp-action="Details" asp-route-id="@villa.Id" class="btn btn-outline-primary">Details</a>
                 <a asp-controller="Villa" asp-action="Edit" asp-route-id="@villa.Id" class="btn btn-outline-warning">Edit</a>
                 <a asp-controller="Villa" asp-action="Delete" asp-route-id="@villa.Id" class="btn btn-outline-danger">Delete</a>
