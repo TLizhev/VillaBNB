@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model List<LatestVillaServiceModel>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -37,6 +38,17 @@
                                 <a class="dropdown-item" asp-area="" asp-controller="Booking" asp-action="AllBookings">AllBookings</a>
                             </div>
                         </li>
+                        @*<li class="nav-item dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Villas
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                @foreach (var item in Model)
+                                {
+
+                                }
+                            </div>
+                        </li>*@
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
