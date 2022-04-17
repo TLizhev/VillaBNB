@@ -8,11 +8,14 @@
         object-fit: cover;
     }
 
-    a{
+    #btns {
         margin-top: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    #cards{
+    #cards {
         margin-top: 100px;
     }
 </style>
@@ -24,10 +27,12 @@
             <img id="img" class="card-img-top" src="@villa.Photo" alt="@villa.Name">
             <div class="card-body">
                 <h5 class="card-title text-center">@villa.Name</h5>
-                <a asp-controller="Villa" asp-action="Details" asp-route-id="@villa.Id" class="btn btn-outline-primary">Details</a>
-                <a asp-controller="Villa" asp-action="Edit" asp-route-id="@villa.Id" class="btn btn-outline-warning">Edit</a>
-                <a asp-controller="Villa" asp-action="Delete" asp-route-id="@villa.Id" class="btn btn-outline-danger">Delete</a>
+                <div id="btns">
+                    <a asp-controller="Villa" asp-action="Details" asp-route-id="@villa.Id" class="btn btn-outline-primary">Details</a>
+                    <a asp-controller="Villa" asp-action="Edit" asp-route-id="@villa.Id" class="btn btn-outline-warning">Edit</a>
+                    <a asp-controller="Villa" asp-action="Delete" asp-route-id="@villa.Id" class="btn btn-outline-danger">Delete</a>
+                </div>
             </div>
         </div>
     }
-    </div>
+</div>

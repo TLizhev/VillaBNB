@@ -37,9 +37,9 @@
         previousPage = 1;
     }
 
-var maxPage = Math.Ceiling((double)Model.TotalVillas / AllVillasQueryModel.VillasPerPage); }
+var maxPage = Math.Ceiling((double)Model.TotalVillas / AllVillasQueryModel.VillasPerPage); }*@
 
-<div class="row mb-5">
+@*<div class="row mb-5">
     <div class="col-md-6">
         <a class="btn btn-primary @(Model.CurrentPage == 1 ? "disabled" : string.Empty)"
            asp-controller="Home"
