@@ -64,7 +64,7 @@ namespace VillaBNB.Controllers
             query.TotalVillas = queryResult.TotalVillas;
             query.Villas = queryResult.Villas;
 
-            return View(query);
+            return View(queryResult);
         }
 
         public IActionResult Privacy()
