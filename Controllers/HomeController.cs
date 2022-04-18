@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using VillaBNB.Data;
+using VillaBNB.Data.Models;
 using VillaBNB.Models;
 using VillaBNB.Services;
 
@@ -65,6 +66,16 @@ namespace VillaBNB.Controllers
             query.Villas = queryResult.Villas;
 
             return View(queryResult);
+        }
+
+        public IVillaService Search(string searchTerm)
+        {
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                return (IVillaService)villaService.All();
+            }
+
+            return (IVillaService)villaService.All().Villas.Where(x => x.Name.Contains(searchTerm));
         }
 
         public IActionResult Privacy()
