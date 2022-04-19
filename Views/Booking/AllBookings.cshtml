@@ -1,9 +1,9 @@
 ﻿@model List<VillaBNB.Data.Models.Booking>
 
-<table class="table-bordered">
+<table class="table table-bordered table-striped">
+    <caption>List of Bookings</caption>
     <thead class="thead-dark">
         <tr>
-            <th scope="col">ID</th>
             <th scope="col">VillaId</th>
             <th scope="col">Price</th>
             <th scope="col">Start Date</th>
@@ -14,7 +14,6 @@
         @for (int i = 0; i < Model.Count(); i++)
         {
         <tr>
-            <td>@Model[i].Id</td>
             <td>@Model[i].VillaId</td>
             <td>@Model[i].TotalPrice</td>
             <td>@Model[i].StartDate.ToShortDateString()</td>
