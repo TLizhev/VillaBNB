@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +27,9 @@ namespace VillaBNB.Controllers
         [HttpPost]
         public IActionResult Add(BookingViewModel model)
         {
+
+            var httpContext = new HttpContextAccessor().HttpContext;
+
             if (!ModelState.IsValid)
             {
                 return View();

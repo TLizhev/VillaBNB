@@ -30,6 +30,8 @@ namespace VillaBNB.Models
 
         [Display(Name = "Number of guests")]
         public int PeopleCount { get; set; }
+        [Display(Name ="Booking Owner")]
+        public string BookingOwner { get; set; }
 
         public IEnumerable<VillasViewModel> Villas { get; set; }
     }

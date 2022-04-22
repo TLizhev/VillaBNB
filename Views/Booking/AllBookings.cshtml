@@ -8,6 +8,7 @@
             <th scope="col">Price</th>
             <th scope="col">Start Date</th>
             <th scope="col">End Date</th>
+            <th scope="col">Booking Owner</th>
         </tr>
     </thead>
     <tbody>
@@ -18,6 +19,7 @@
             <td>@Model[i].TotalPrice</td>
             <td>@Model[i].StartDate.ToShortDateString()</td>
             <td>@Model[i].EndDate.ToShortDateString()</td>
+            <td>@Model[i].UserId</td>
         </tr>
         }
 
