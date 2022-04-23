@@ -39,7 +39,7 @@ namespace VillaBNB.Controllers
                 StartDate = model.StartDate,
                 EndDate = model.EndDate,
                 TotalPrice = model.PricePerNight*(model.EndDate-model.StartDate).Days,
-                VillaId = int.Parse(model.VillaName),
+                VillaId = model.VillaId,               
             };
 
             var bookingList = this.db.Bookings.ToList();
@@ -78,6 +78,16 @@ namespace VillaBNB.Controllers
                 Id = v.Id,
                 Name = v.Name,
             }).ToList();
+        }
+
+        public IEnumerable<BookingViewModel> GetBookings()
+        {
+            return this.db.Bookings.Select(v => new BookingViewModel
+            {
+                VillaName = v.Villa.Name,
+                BookingOwner = HttpContext.User.Identity.ToString(),
+                VillaId = v.VillaId,
+            });
         }
     }
 }
