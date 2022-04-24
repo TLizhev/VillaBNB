@@ -42,8 +42,8 @@ namespace VillaBNB.Data.Models
         public DateTime EndDate { get; set; }
 
         public decimal PricePerNight { get; set; }
-        //[ForeignKey(nameof(Owner))]
-        //public int OwnerId { get; set; }
+        [ForeignKey(nameof(Owner))]
+        public int OwnerId { get; set; }
 
         public virtual Owner Owner { get; set; }
 
