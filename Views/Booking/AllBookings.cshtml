@@ -9,6 +9,8 @@
             <th scope="col">Start Date</th>
             <th scope="col">End Date</th>
             <th scope="col">Booking Owner</th>
+            <th scope="col">Villa</th>
+
         </tr>
     </thead>
     <tbody>
@@ -20,6 +22,8 @@
             <td>@Model[i].StartDate.ToShortDateString()</td>
             <td>@Model[i].EndDate.ToShortDateString()</td>
             <td>@Model[i].UserId</td>
+            <td>@Model[i].Villa</td>
+
         </tr>
         }
 
