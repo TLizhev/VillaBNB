@@ -66,11 +66,7 @@ namespace VillaBNB.Controllers
 
         public IActionResult AllBookings()
         {
-            var villas = new Booking
-            {
-                VillaId = GetAllVillas().Select(x => x.Id).FirstOrDefault()
-            };
-            var bookings = this.db.Bookings.ToList();
+            var bookings = GetBookings();
             return View(bookings);
         }
 
@@ -91,7 +87,10 @@ namespace VillaBNB.Controllers
                 VillaName = v.Villa.Name,
                 BookingOwner = HttpContext.User.Identity.ToString(),
                 VillaId = v.VillaId,
-            });
+                StartDate = v.StartDate,
+                EndDate = v.EndDate,
+                TotalCost = v.TotalPrice,
+            }).ToList();
         }
 
         public IEnumerable<Villa> GetAllVillas()

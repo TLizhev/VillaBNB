@@ -12,7 +12,7 @@ namespace VillaBNB.Data.Models
 
         public string Name { get; set; }
 
-        public virtual ICollection<Villa> Villas => new HashSet<Villa>();
+        //public virtual ICollection<Villa> Villas => new HashSet<Villa>();
         public virtual ICollection<City> Cities => new HashSet<City>();
     }
 }

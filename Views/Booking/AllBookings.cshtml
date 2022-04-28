@@ -1,15 +1,15 @@
-﻿@model List<VillaBNB.Data.Models.Booking>
+﻿@model List<VillaBNB.Models.BookingViewModel>
 
 <table class="table table-bordered table-striped">
     <caption>List of Bookings</caption>
     <thead class="thead-dark">
         <tr>
             <th scope="col">VillaId</th>
-            <th scope="col">Price</th>
             <th scope="col">Start Date</th>
             <th scope="col">End Date</th>
-            <th scope="col">Booking Owner</th>
-            <th scope="col">Villa</th>
+            <th scope="col">Price Per Night</th>
+            <th scope="col">Price Total</th>
+            <th scope="col">People</th>
 
         </tr>
     </thead>
@@ -17,12 +17,12 @@
         @for (int i = 0; i < Model.Count(); i++)
         {
         <tr>
-            <td>@Model.Select(x=>x.Villa).Where(x=>x.Id==Model[i].Id).Select(x=>x.Name).FirstOrDefault()</td>
-            <td>@Model[i].TotalPrice</td>
+            <td>@Model[i].VillaName</td>
             <td>@Model[i].StartDate.ToShortDateString()</td>
             <td>@Model[i].EndDate.ToShortDateString()</td>
-            <td>@Model[i].UserId</td>
-            <td>@Model[i].Villa</td>
+            <td>@Model[i].PricePerNight</td>
+            <td>@Model[i].TotalCost</td>
+            <td>@Model[i].PeopleCount</td>
 
         </tr>
         }
