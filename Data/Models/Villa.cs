@@ -49,5 +49,7 @@ namespace VillaBNB.Data.Models
 
         public virtual ICollection<Image> Images => new HashSet<Image>();
         public virtual ICollection<Amenity> Amenities => new HashSet<Amenity>();
+
+        public virtual ICollection<Booking> Bookings => new List<Booking>();
     }
 }
