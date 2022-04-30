@@ -53,5 +53,7 @@ namespace VillaBNB.Models
         public IEnumerable<CountryViewModel> Countries { get; set; }
 
         public IEnumerable<Amenity> Amenities { get; set; }
+
+        public IEnumerable<Booking> Bookings { get; set; }
     }
 }
